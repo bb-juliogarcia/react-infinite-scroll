@@ -19,6 +19,7 @@ module.exports = function (React) {
         threshold: 250
       };
     },
+
     componentDidMount: function () {
       this.pageLoaded = this.props.pageStart;
       this.attachScrollListener();
@@ -28,6 +29,7 @@ module.exports = function (React) {
     },
     render: function () {
       var props = this.props;
+      if (!props.isInitialized) this.pageLoaded = 0;
       return React.DOM.div(null, props.children, props.hasMore && (props.loader || InfiniteScroll._defaultLoader));
     },
     scrollListener: function () {
