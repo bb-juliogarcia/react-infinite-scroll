@@ -20,9 +20,10 @@ module.exports = function (React) {
         threshold: 250
       };
     },
-
     componentWillMount: function () {
       this.pageLoaded = this.props.pageStart;
+    },
+    componentDidMount: function () {
       this.attachScrollListener();
     },
     componentDidUpdate: function () {
